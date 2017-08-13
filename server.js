@@ -4,11 +4,11 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articleone={
+var articleOne={
   title:'Artile one|abi',
   heading:'Article one',
   date:'aug 13',
-  content:'
+  content: '
               <p>
                    This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
                </p>
@@ -17,6 +17,37 @@ var articleone={
                </p>'
            
 };
+
+var htmlTemplate='
+     <html>
+    <head>
+       <title>
+        Article one | abi
+    </title>
+    <meta name="viewport" content="width-device-width,initial-scale-1/">
+    <link href="/ui/style.css" rel="stylesheet" />
+    </head>
+    
+    <body>
+        <div class="container">
+           <div>
+               <a href='/'>home</a>
+           </div> 
+           <hr/>
+           <h3>
+               Article one
+           </h3>
+           <div>
+               aug 13
+           </div>
+           <div>
+              
+           </div>
+       </div>
+    </body>
+</html>
+
+'
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
